@@ -1,0 +1,13 @@
+one:
+  name: テストユーザー1
+  email: test1@example.com
+  password_digest: <%= BCrypt::Password.create("password123") %>
+  address: 東京都
+  role: resident
+
+two:
+  name: テストユーザー2
+  email: test2@example.com
+  password_digest: <%= BCrypt::Password.create("password123") %>
+  address: 大阪府
+  role: staff
