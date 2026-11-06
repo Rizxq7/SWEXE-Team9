@@ -1,0 +1,13 @@
+<div class="auth-container">
+  <h1>災害時支援情報共有システム</h1>
+
+  <p>ログインしました。</p>
+
+  <p>ようこそ、<%= current_user.name %> さん</p>
+
+  <p>利用者区分：
+    <%= current_user.role == "resident" ? "住民" : "自治体職員" %>
+  </p>
+
+  <%= button_to "ログアウト", logout_path, method: :delete %>
+</div>

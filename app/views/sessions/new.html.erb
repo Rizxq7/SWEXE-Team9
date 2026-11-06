@@ -1,0 +1,27 @@
+<div class="auth-container">
+  <h1>ログイン</h1>
+
+  <% if flash[:alert] %>
+    <p class="error-messages"><%= flash[:alert] %></p>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
+
+  <%= form_with url: login_path do |f| %>
+    <div>
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email, required: true %>
+    </div>
+
+    <div>
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password, required: true %>
+    </div>
+
+    <%= f.submit "ログイン" %>
+  <% end %>
+
+  <p><%= link_to "新規ユーザー登録はこちら", new_user_path %></p>
+</div>
