@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path, notice: "ログインしました。"
+      redirect_to top_index_path, notice: "ログインしました。"
     else
       flash.now[:alert] = "メールアドレスまたはパスワードが違います。"
       render :new, status: :unprocessable_entity
