@@ -1,13 +1,46 @@
-<div class="auth-container">
-  <h1>災害時支援情報共有システム</h1>
 
-  <p>ログインしました。</p>
+<div class="resident-top">
+  <header class="resident-header">
+    <h1>災害時支援情報共有システム</h1>
 
-  <p>ようこそ、<%= current_user.name %> さん</p>
+    <%= button_to "ログアウト",
+        logout_path,
+        method: :delete,
+        class: "logout-button" %>
+  </header>
 
-  <p>利用者区分：
-    <%= current_user.role == "resident" ? "住民" : "自治体職員" %>
-  </p>
+  <main class="resident-main">
+    <section class="welcome-section">
+      <h2>住民用トップページ</h2>
+      <p>
+        <%= @user.name %> さん、こんにちは。
+      </p>
+      <p>
+        必要な支援を登録して、対応状況を確認できます。
+      </p>
+    </section>
 
-  <%= button_to "ログアウト", logout_path, method: :delete %>
+    <section class="user-info">
+      <h3>登録情報</h3>
+      <p>氏名：<%= @user.name %></p>
+      <p>住所：<%= @user.address %></p>
+      <p>メールアドレス：<%= @user.email %></p>
+    </section>
+
+    <section class="support-menu">
+      <h3>支援メニュー</h3>
+
+      <div class="menu-card">
+        <h4>支援要請を登録する</h4>
+        <p>必要な物資や支援内容を自治体に伝えます。</p>
+        <p class="menu-status">支援要請登録機能：今後実装</p>
+      </div>
+
+      <div class="menu-card">
+        <h4>支援要請の一覧・対応状況</h4>
+        <p>自分が登録した支援要請の状況を確認します。</p>
+        <p class="menu-status">支援要請一覧機能：今後実装</p>
+      </div>
+    </section>
+  </main>
 </div>
