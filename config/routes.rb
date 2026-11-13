@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get "top/index"
-  root "top#index"
+  root "sessions#new"
 
   resources :users, only: [:new, :create]
 
