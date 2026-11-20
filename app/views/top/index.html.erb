@@ -33,7 +33,10 @@
       <div class="menu-card">
         <h4>支援要請を登録する</h4>
         <p>必要な物資や支援内容を自治体に伝えます。</p>
-        <p class="menu-status">支援要請登録機能：今後実装</p>
+
+        <%= link_to "支援要請を登録する",
+          new_support_request_path,
+          class: "menu-button" %>
       </div>
 
       <div class="menu-card">

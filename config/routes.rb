@@ -4,6 +4,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
+  resources :support_requests, only: [:new, :create] do
+    member do
+      get :complete
+    end
+  end
+
   get "/login", to: "sessions#new", as: :login
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy", as: :logout
