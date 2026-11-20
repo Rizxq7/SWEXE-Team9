@@ -1,0 +1,41 @@
+
+<div class="support-container">
+  <div class="complete-message">
+    <h1>支援要請の登録が完了しました</h1>
+    <p>ご登録ありがとうございます。</p>
+    <p>以下の内容で支援要請を受け付けました。</p>
+  </div>
+
+  <div class="request-details">
+    <h2>登録内容</h2>
+
+    <p>
+      <strong>要請タイトル：</strong>
+      <%= @support_request.title %>
+    </p>
+
+    <p>
+      <strong>支援カテゴリ：</strong>
+      <%= @support_request.category %>
+    </p>
+
+    <p>
+      <strong>必要な支援内容：</strong>
+      <%= simple_format(@support_request.description) %>
+    </p>
+
+    <p>
+      <strong>支援が必要な場所：</strong>
+      <%= @support_request.address %>
+    </p>
+
+    <p>
+      <strong>対応状況：</strong>
+      <%= @support_request.status %>
+    </p>
+  </div>
+
+  <%= link_to "トップページに戻る",
+      top_index_path,
+      class: "submit-button" %>
+</div>
