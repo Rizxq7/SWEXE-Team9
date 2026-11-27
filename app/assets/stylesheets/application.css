@@ -134,3 +134,121 @@
 .menu-button:hover {
   background-color: #1d5f9e;
 }
+
+/* 支援要請一覧画面 */
+.requests-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.requests-container h1 {
+  margin-bottom: 10px;
+  color: #24476b;
+  font-size: 28px;
+  border-bottom: 3px solid #2878c8;
+  padding-bottom: 15px;
+}
+
+.requests-description {
+  margin-bottom: 25px;
+  color: #666666;
+}
+
+.requests-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.requests-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #cbd5e1;
+}
+
+.requests-table th,
+.requests-table td {
+  padding: 15px;
+  border: 1px solid #cbd5e1;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.requests-table th {
+  background-color: #2878c8;
+  color: #ffffff;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.requests-table tbody tr:nth-child(even) {
+  background-color: #f1f6fb;
+}
+
+.requests-table tbody tr:hover {
+  background-color: #e3effb;
+}
+
+.request-title {
+  font-weight: bold;
+  color: #24476b;
+}
+
+.request-status {
+  display: inline-block;
+  padding: 5px 12px;
+  background-color: #fff2cc;
+  color: #805b00;
+  border-radius: 5px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.requests-empty {
+  padding: 30px;
+  background-color: #f1f6fb;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  text-align: center;
+  color: #666666;
+}
+
+.requests-actions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.requests-back-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #2878c8;
+  color: #ffffff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.requests-back-button:hover {
+  background-color: #1d5f9e;
+}
+
+@media (max-width: 768px) {
+  .requests-container {
+    margin: 15px;
+    padding: 15px;
+  }
+
+  .requests-container h1 {
+    font-size: 23px;
+  }
+
+  .requests-table th,
+  .requests-table td {
+    padding: 10px;
+    font-size: 14px;
+  }
+}

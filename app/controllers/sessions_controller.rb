@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+﻿class SessionsController < ApplicationController
   def new
   end
 
@@ -7,7 +7,12 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to top_index_path, notice: "ログインしました。"
+
+      if user.role == "staff"
+        redirect_to staff_dashboard_path, notice: "Login successful."
+      else
+        redirect_to top_index_path, notice: "Login successful."
+      end
     else
       flash.now[:alert] = "メールアドレスまたはパスワードが違います。"
       render :new, status: :unprocessable_entity

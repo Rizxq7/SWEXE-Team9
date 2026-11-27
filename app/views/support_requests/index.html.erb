@@ -1,0 +1,44 @@
+﻿<div class="requests-container">
+  <h1>支援要請一覧</h1>
+
+  <p class="requests-description">
+    登録された支援要請の内容と対応状況を確認できます。
+  </p>
+
+  <% if @support_requests.any? %>
+    <div class="requests-table-wrapper">
+      <table class="requests-table">
+        <thead>
+          <tr>
+            <th>タイトル</th>
+            <th>内容</th>
+            <th>住所</th>
+            <th>対応状況</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @support_requests.each do |request| %>
+            <tr>
+              <td class="request-title"><%= request.title %></td>
+              <td><%= request.description %></td>
+              <td><%= request.address %></td>
+              <td>
+                <span class="request-status">
+                  <%= request.status %>
+                </span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <p class="requests-empty">
+      現在、登録されている支援要請はありません。
+    </p>
+  <% end %>
+
+  <div class="requests-actions">
+    <%= link_to "職員用トップページに戻る", staff_dashboard_path, class: "requests-back-button" %>
+  </div>
+</div>

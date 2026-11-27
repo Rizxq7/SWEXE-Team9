@@ -1,6 +1,11 @@
-class SupportRequestsController < ApplicationController
-  before_action :require_resident
+﻿class SupportRequestsController < ApplicationController
+  before_action :require_resident, only: [:new, :create, :complete]
+  before_action :require_staff, only: [:index]
   before_action :set_support_request, only: [:complete]
+
+  def index
+    @support_requests = SupportRequest.includes(:user).order(created_at: :desc)
+  end
 
   def new
     @support_request = SupportRequest.new
@@ -8,7 +13,7 @@ class SupportRequestsController < ApplicationController
 
   def create
     @support_request = current_user.support_requests.build(support_request_params)
-    @support_request.status = "未対応"
+    @support_request.status = "\u672a\u5bfe\u5fdc"
 
     if @support_request.save
       redirect_to complete_support_request_path(@support_request)
@@ -24,7 +29,13 @@ class SupportRequestsController < ApplicationController
 
   def require_resident
     unless logged_in? && current_user.role == "resident"
-      redirect_to login_path, alert: "住民アカウントでログインしてください。"
+      redirect_to login_path, alert: "Resident account required."
+    end
+  end
+
+  def require_staff
+    unless logged_in? && current_user.role == "staff"
+      redirect_to login_path, alert: "Staff account required."
     end
   end
 

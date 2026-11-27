@@ -1,0 +1,17 @@
+﻿<h1>自治体職員メニュー</h1>
+
+<p>自治体職員用の管理画面です。</p>
+
+<h2>支援要請の管理</h2>
+
+<p>現在の登録件数：<%= @support_request_count %> 件</p>
+
+<ul>
+  <li>
+    <%= link_to "支援要請一覧を確認する", support_requests_path %>
+  </li>
+</ul>
+
+<p>
+  <%= link_to "ログアウト", logout_path, data: { turbo_method: :delete } %>
+</p>
